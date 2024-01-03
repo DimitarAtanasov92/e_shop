@@ -1,0 +1,76 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E-shop</title>
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+</head>
+<body>
+<header>
+    <div class="banner">
+        <div class="wrapper-images">
+	<div class="images-line">
+		<div class="line large" style="background-image:url({% static "pictures/IMG_8495-2.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8528.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8564.jpg" %})"></div>
+		<div class="line large" style="background-image:url({% static "pictures/IMG_8577.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8586.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8612.jpg" %})"></div>
+	</div>
+	<div class="images-line">
+		<div class="line" style="background-image:url({% static "pictures/IMG_8495-2.jpg" %})"></div>
+		<div class="line large" style="background-image:url({% static "pictures/IMG_8528.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8564.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8577.jpg" %})"></div>
+		<div class="line large" style="background-image:url({% static "pictures/IMG_8586.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8612.jpg" %})"></div>
+	</div>
+	<div class="images-line">
+		<div class="line " style="background-image:url({% static "pictures/IMG_8495-2.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8528.jpg" %})"></div>
+		<div class="line large" style="background-image:url({% static "pictures/IMG_8564.jpg" %})"></div>
+		<div class="line " style="background-image:url({% static "pictures/IMG_8577.jpg" %})"></div>
+		<div class="line" style="background-image:url({% static "pictures/IMG_8586.jpg" %})"></div>
+		<div class="line large" style="background-image:url({% static "pictures/IMG_8612.jpg" %})"></div>
+	</div>
+</div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">subitiq</a></li>
+            <li><a href="#">stoki</a></li>
+            <li><a href="#">kontaktil</a></li>
+            <li><a href="#">za nas</a></li>
+            <li><a href="#">logout</a></li>
+            <li><a href="#">profilna snikama</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="left-container">
+        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="left pic">
+    </div>
+    <div class="middle-container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="right-container">
+        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="right pic">
+    </div>
+</div>
+
+<footer>
+    <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Tik Tok</a></li>
+        <li><a href="#">Instagram</a></li>
+    </ul>
+</footer>
+<script src="{% static "js/base.js" %}"></script>
+</body>
+</html>
