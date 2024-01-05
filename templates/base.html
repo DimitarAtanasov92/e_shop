@@ -8,8 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>E-shop</title>
     <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link rel="icon" href="{% static "logo/logo.jpg" %}" title="FuroreBG">
 </head>
-<body>
+<body style="background-image:url({% static "logo/logo_background3.png" %})">
 <header>
     <div class="banner">
         <div class="wrapper-images">
@@ -41,26 +42,35 @@
     </div>
     <nav>
         <ul>
+            {% if request.user.is_authenticated %}
             <li><a href="#">subitiq</a></li>
             <li><a href="#">stoki</a></li>
             <li><a href="#">kontaktil</a></li>
             <li><a href="#">za nas</a></li>
             <li><a href="#">logout</a></li>
             <li><a href="#">profilna snikama</a></li>
+            {% else %}
+                <li><a href="#">subitiq</a></li>
+            <li><a href="#">stoki</a></li>
+            <li><a href="#">kontaktil</a></li>
+            <li><a href="#">za nas</a></li>
+            <li><a href="#">login</a></li>
+            <li><a href="#">register</a></li>
+            {% endif %}
         </ul>
     </nav>
 </header>
 
 <div class="container">
     <div class="left-container">
-        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="left pic">
+        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="left pic" id="img1">
     </div>
     <div class="middle-container">
         {% block content %}
         {% endblock %}
     </div>
     <div class="right-container">
-        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="right pic">
+        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="right pic" id="img2">
     </div>
 </div>
 
