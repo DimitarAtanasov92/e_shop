@@ -47,7 +47,7 @@
             <li><a href="#">stoki</a></li>
             <li><a href="#">kontaktil</a></li>
             <li><a href="#">za nas</a></li>
-            <li><a href="#">logout</a></li>
+            <li><a href="{% url "logout" %}">Logout</a></li>
             <li><a href="#">profilna snikama</a></li>
             {% else %}
                 <li><a href="#">subitiq</a></li>
@@ -55,7 +55,7 @@
             <li><a href="#">kontaktil</a></li>
             <li><a href="#">za nas</a></li>
             <li><a href="#">login</a></li>
-            <li><a href="#">register</a></li>
+            <li><a href="{% url "registration" %}">Registration</a></li>
             {% endif %}
         </ul>
     </nav>
