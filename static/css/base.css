@@ -9,10 +9,10 @@ a {
 	text-align: center;
 	margin: 1vh auto;
 	padding: 2.5vh 0;
-	width: 80%;
+	width: 100px;
 	background: rgba(243, 34, 6, 0.3);
 	backdrop-filter: blur(15px);
-	border-radius: 5px;
+	border-radius: 15px;
 	box-shadow: 1px 1px 0 0 rgba(238, 164, 164, 0.8) inset,
 		3px 5px 10px 0 rgba(0, 0, 0, 0.1);
 	text-decoration: None;
@@ -85,7 +85,9 @@ nav ul {
     justify-content: space-evenly;
     list-style: none;
 }
-
+nav ul li {
+	width: 100px;
+}
 nav a {
     text-decoration: none;
     color: #67f607;
@@ -102,14 +104,14 @@ nav a {
 }
 
 .left-container{
-	position: absolute;
+	position: fixed;
 	margin-left: 0;
 	padding-top: 20px;
 	width: 200px;
 	height: 600px
 }
 .right-container {
-	position: absolute;
+	position: fixed;
     margin-left: 85%;
 	padding-top: 20px;
 	width: 200px;
@@ -147,4 +149,8 @@ footer a {
     color: #67f607;
 	font-style: oblique;
     margin: 0 10px;
+}
+.no_img {
+	width: 20px;
+	height: 20px;
 }

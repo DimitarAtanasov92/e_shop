@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+    <link rel="stylesheet" href="{% static "css/register.css" %}">
+    <div class="reg_cont">
 <form method="post">
-{{ form }}
+<h2>Email:</h2>
+    {{ form.email }}
+    <h2>Password:</h2>
+{{ form.password1 }}
+    <h2>Repeat password:</h2>
+    {{ form.password2 }}
 {% csrf_token %}
 <div>
     <button class="register-button">Register</button>
 </div>
 </form>
+    </div>
 {% endblock %}

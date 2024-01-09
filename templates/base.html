@@ -1,3 +1,16 @@
+{##myproject/myproject/templatetags/tags.py#}
+{##}
+{#from django import template#}
+{##}
+{#register = template.Library()#}
+{##}
+{#@register.simple_tag#}
+{#def number_of_messages(request):#}
+{#    return _number#}
+{#In your Base.html#}
+{##}
+{#{% load tags %}#}
+{#    {% number_of_messages request %}#}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -43,19 +56,23 @@
     <nav>
         <ul>
             {% if request.user.is_authenticated %}
-            <li><a href="#">subitiq</a></li>
-            <li><a href="#">stoki</a></li>
-            <li><a href="#">kontaktil</a></li>
-            <li><a href="#">za nas</a></li>
-            <li><a href="{% url "logout" %}">Logout</a></li>
-            <li><a href="#">profilna snikama</a></li>
+            <li><a href="#">  subitiq  </a></li>
+            <li><a href="#">   stoki   </a></li>
+            <li><a href="#"> kontaktil </a></li>
+            <li><a href="#">   za nas   </a></li>
+            <li><a href="{% url "logout" %}">   Logout   </a></li>
+                {% if request.user.img %}
+                    <li><a href="#">profilna snikama</a></li>
+                    {% else %}
+                    <li><a href=""><img class="no_img" src="{% static "on_user_icon/no_user_icon.png" %}" alt="icon"></a></li>
+                    {% endif %}
             {% else %}
-                <li><a href="#">subitiq</a></li>
-            <li><a href="#">stoki</a></li>
-            <li><a href="#">kontaktil</a></li>
-            <li><a href="#">za nas</a></li>
-            <li><a href="#">login</a></li>
-            <li><a href="{% url "registration" %}">Registration</a></li>
+                <li><a href="#">   __subitiq__   </a></li>
+            <li><a href="#">   ___stoki___   </a></li>
+            <li><a href="#">  __kontakti__  </a></li>
+            <li><a href="#">   ___za nas___   </a></li>
+            <li><a href="{% url "login_user" %}">___Login___</a></li>
+            <li><a href="{% url "registration" %}">_Registration_</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -81,6 +98,24 @@
         <li><a href="#">Instagram</a></li>
     </ul>
 </footer>
-<script src="{% static "js/base.js" %}"></script>
+<script>
+    let imageUrls = [
+        "{% static "pictures/IMG_8495-2.jpg" %}",
+        "{% static "pictures/IMG_8528.jpg" %}",
+        "{% static "pictures/IMG_8564.jpg" %}",
+        "{% static "pictures/IMG_8577.jpg" %}",
+        ];
+let imageIndex = 0;
+let sliderImage = document.getElementById('img1');
+ setInterval(() => {
+  imageIndex = (imageIndex + 1) % imageUrls.length;
+  sliderImage.src = imageUrls[imageIndex];
+}, 2000);
+ let sliderImage2 = document.getElementById('img2');
+ setInterval(() => {
+  imageIndex = (imageIndex + 1) % imageUrls.length;
+  sliderImage2.src = imageUrls[imageIndex];
+}, 2000);
+</script>
 </body>
 </html>
