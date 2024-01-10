@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/profile_detail.css" %}">
+<div class="profile_cont">
+<h1>Profile details</h1>
+    {% if profile.img %}
+    <img class="profile-img" src="{{ profile.img.url }}" alt="Profile Image">
+    {% else %}
+    <img src="https://icon-library.com/images/windows-10-circle-icon/windows-10-circle-icon-29.jpg" alt="no image" style="width: 4cm; height: 4cm">
+    {% endif %}
+    <h2>First name:</h2>
+    {{ profile.first_name }}
+    <h2>Last name:</h2>
+    {{ profile.last_name }}
+    <h2>Age:</h2>
+    {{ profile.age }}
+    <h2>Email:</h2>
+    <p>{{ profile.email }}</p>
+    <button><a href="">Edit</a></button>
+    <button><a href="">Delete</a></button>
+</div>
+{% endblock %}
