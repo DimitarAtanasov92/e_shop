@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/edit_profile.css" %}">
+<div>
+    <form method="post" enctype="multipart/form-data">
+    <section class="edit_cont" >
+        <div>
+        {% if profile.img %}
+        <img class="profile_img" src="{{ profile.img.url }}" alt="profile img">
+        {% else %}
+        <img class="profile_img" src="{% static "on_user_icon/no_user_icon.png" %}" alt="profile img">
+        {% endif %}
+        </div>
+        {{ form.img }}
+        <h1>First name:</h1>
+        {{ form.first_name }}
+        <h1>Last name:</h1>
+        {{ form.last_name }}
+        <h1>Age:</h1>
+        <h2>{{ form.age }}</h2>
+         {% csrf_token %}
+      <button type="submit">Save</button>
+    </section>
+    </form>
+</div>
+{% endblock %}

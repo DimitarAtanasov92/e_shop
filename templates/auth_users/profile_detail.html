@@ -17,7 +17,7 @@
     {{ profile.age }}
     <h2>Email:</h2>
     <p>{{ profile.email }}</p>
-    <button><a href="">Edit</a></button>
-    <button><a href="">Delete</a></button>
+    <button><a href="{% url "profile_edit" pk=user.pk %}">Edit</a></button>
+    <button><a href="{% url "profile_delete" pk=user.pk %}">Delete</a></button>
 </div>
 {% endblock %}
