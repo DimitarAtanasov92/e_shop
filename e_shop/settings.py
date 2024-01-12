@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "e_shop.auth_users",
     "e_shop.e_shop_base",
+    "e_shop.about_us",
 ]
 
 MIDDLEWARE = [
