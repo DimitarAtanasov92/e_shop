@@ -57,7 +57,7 @@
     <nav>
         <ul>
             {% if request.user.is_authenticated %}
-            <li><button class="btn"><a href="#">subitiq</a></button></li>
+            <li><button class="btn"><a href="{% url "events_list" %}">Events</a></button></li>
             <li><button class="btn"><a href="#">stoki</a></button></li>
             <li><button class="btn"><a href="#">kontakti</a></button></li>
             <li><button class="btn"><a href="{% url "about_us" pk=1 %}">About Us</a></button></li>

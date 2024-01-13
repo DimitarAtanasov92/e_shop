@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/events_list.css" %}">
+{% for event in event_list %}
+    <div class="event_item">
+        <img src="{{ event.event_img.url }}" alt="event_img">
+        <a href="{% url "event_details" pk=event.pk %}"><h1>{{ event.title }}</h1></a>
+    </div>
+{% endfor %}
+{#    TODO: make different style#}
+    <div class="pages">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}&search={{ search }}">&lt;</a>
+        {% endif %}
+            {{ page_obj.number }} / {{ paginator.num_pages }}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&search={{ search }}">&gt;</a>
+        {% endif %}
+    </div>
+{% endblock %}

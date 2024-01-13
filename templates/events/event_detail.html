@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/event_detail.css" %}">
+    <div class="event_detail">
+        <img src="{{ event.event_img.url }}" alt="detail picture">
+        <h1>{{ event.title }}</h1>
+        <p>{{ event.text }}</p>
+        {% if event.link %}
+        <h2>{{ event.link }}</h2>
+        {% else %}
+        {% endif %}
+        <h2>Date: {{ event.date }}</h2>
+        <button class="btn1" onclick="showComments()">Show Comments:</button>
+        <ul id="comments-section" class="comment-list">
+            {% for ev in event.commentevent_set.all %}
+                <div class="comment-container">
+                    <div class="name-comment">
+                        <h1><img class="prof-img" src="{{ ev.to_profile.img.url }}" alt="profile picture">{{ ev.to_profile.first_name }} {{ ev.to_profile.last_name }}</h1>
+                        <p>{{ ev.date_time }}</p>
+                    </div>
+                    <p>{{ ev.comment }}</p>
+                </div>
+            {% endfor %}
+            <button class="btn1" onclick="hideComments()">Hide Comments</button>
+        </ul>
+        <button class="btn1"><a href="{% url "add_comment" pk=event.pk %}">Add comment</a></button>
+        <button class="btn1"><a href="{% url "events_list" %}">Back to Events</a></button>
+    </div>
+    <script src="{% static "js/event_detail.js" %}"></script>
+{% endblock %}
