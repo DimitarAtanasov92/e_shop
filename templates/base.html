@@ -59,7 +59,7 @@
             {% if request.user.is_authenticated %}
             <li><button class="btn"><a href="{% url "events_list" %}">Events</a></button></li>
             <li><button class="btn"><a href="#">stoki</a></button></li>
-            <li><button class="btn"><a href="#">kontakti</a></button></li>
+            <li><button class="btn"><a href="{% url "contacts" %}">Contacts</a></button></li>
             <li><button class="btn"><a href="{% url "about_us" pk=1 %}">About Us</a></button></li>
             <li><form method="post" action="{% url "logout" %}">
                 {% csrf_token %}
@@ -77,9 +77,9 @@
                     </li>
                     {% endif %}
             {% else %}
-                <li><button class="btn"><a href="#">subitiq</a></button></li>
+                <li><button class="btn"><a href="{% url "events_list" %}">Events</a></button></li>
             <li><button class="btn"><a href="#">stoki</a></button></li>
-            <li><button class="btn"><a href="#">kontakti</a></button></li>
+            <li><button class="btn"><a href="{% url "contacts" %}">Contacts</a></button></li>
             <li><button class="btn"><a href="{% url "about_us" pk=1 %}">About Us</a></button></li>
             <li><button class="btn"><a href="{% url "login_user" %}">Login</a></button></li>
             <li><button class="btn"><a href="{% url "registration" %}">Registration</a></button></li>

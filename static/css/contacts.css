@@ -1,0 +1,21 @@
+.contact_us_cont {
+    align-items: center;
+    background-color: #b0e7ae;
+    text-align: center;
+    font-style: oblique;
+    border-radius: 30px;
+    position: relative;
+}
+button {
+    margin-top: 10px;
+    width: 100px;
+    background-color: #12ecec;
+    border-radius: 15px;
+    font-style: oblique;
+    will-change: color;
+    transition: ease all 0.3s;
+    &:hover {
+        transform: scale(1.5);
+        background: rgba(87, 203, 29, 0.8);
+    }
+}

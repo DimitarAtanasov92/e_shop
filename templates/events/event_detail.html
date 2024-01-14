@@ -24,6 +24,7 @@
             {% endfor %}
             <button class="btn1" onclick="hideComments()">Hide Comments</button>
         </ul>
+{#        TODO: Make authenticated#}
         <button class="btn1"><a href="{% url "add_comment" pk=event.pk %}">Add comment</a></button>
         <button class="btn1"><a href="{% url "events_list" %}">Back to Events</a></button>
     </div>

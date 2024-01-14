@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "e_shop.e_shop_base",
     "e_shop.about_us",
     "e_shop.events",
+    "e_shop.contacts",
 ]
 
 MIDDLEWARE = [
