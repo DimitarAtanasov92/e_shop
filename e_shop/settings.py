@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "e_shop.about_us",
     "e_shop.events",
     "e_shop.contacts",
+    "e_shop.stocks",
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "e_shop.context_processors.img_processor",
             ],
         },
     },

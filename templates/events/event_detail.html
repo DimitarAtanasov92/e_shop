@@ -24,8 +24,10 @@
             {% endfor %}
             <button class="btn1" onclick="hideComments()">Hide Comments</button>
         </ul>
-{#        TODO: Make authenticated#}
+        {% if request.user.is_authenticated %}
         <button class="btn1"><a href="{% url "add_comment" pk=event.pk %}">Add comment</a></button>
+        {% else %}
+        {% endif %}
         <button class="btn1"><a href="{% url "events_list" %}">Back to Events</a></button>
     </div>
     <script src="{% static "js/event_detail.js" %}"></script>
