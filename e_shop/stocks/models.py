@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import CASCADE
 
 
 class Stock(models.Model):
@@ -31,3 +32,9 @@ class Stock(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ImgStocks(models.Model):
+
+    stocks = models.ForeignKey(Stock, on_delete=CASCADE)
+    img = models.ImageField()
