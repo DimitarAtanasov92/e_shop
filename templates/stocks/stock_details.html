@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/stock_details.css" %}">
+    <div class="stock-detail-cont">
+        <div class="detail-img"><img src="{{ stock.imgstocks_set.first.img.url }}" alt="big-img" class="big-img">
+            <div class="little-img-cont">
+            {% for imgUrl in stock.imgstocks_set.all %}
+                <div>
+                    <button class="button-img" onclick="changeImage('{{ imgUrl.img.url }}')">
+                        <img src="{{ imgUrl.img.url }}" alt="s-img" class="s-img">
+                    </button>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="context-cont">
+            <h1>{{ stock.name }}</h1>
+            <h2>{{ stock.description }}</h2>
+            <h1>Price: {{ stock.price }}$</h1>
+            <button class="buy-button"><a href="#">Buy</a></button>
+        </div>
+    </div>
+    <script src="{% static "js/stock_details.js" %}"></script>
+{% endblock %}

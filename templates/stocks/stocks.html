@@ -3,5 +3,30 @@
 {% block content %}
     <link rel="stylesheet" href="{% static "css/stocks.css" %}">
 <div class="stocks-cont">
+<div class="thead">
+<thead>
+<h1>Filter stocks</h1>
+      <tr>
+        <th class="filter-th"><label for="name-filter"></label><input type="text" id="name-filter" placeholder="Enter stock name"></th>
+        <th class="filter-th"><label for="price-filter"></label><input type="text" id="price-filter" placeholder="Enter stock max price"></th>
+        <th class="filter-th"><label for="type-filter"></label><input type="text" id="type-filter" placeholder="Enter stock type"></th>
+        <th class="filter-th"><label for="size-filter"></label><input type="text" id="size-filter" placeholder="Enter stock size"></th>
+        <th class="filter-th"><label for="fabric-filter"></label><input type="text" id="fabric-filter" placeholder="Enter stock fabric"></th>
+      </tr>
+</thead>
+</div>
+<div class="stocks-list">
+    {% for stocks in stock_list %}
+        <div class="stock-detail">
+            <button class="btn-detail">
+                <a href="{% url "stocks-details" pk=stocks.pk %}">
+                    <img src="{{ stocks.imgstocks_set.first.img.url }}" alt="stock-img" class="img-stock">
+                    <h3 class="product-title">{{ stocks.name }}</h3>
+                    <p class="product-price">{{ stocks.price|floatformat:2 }}$</p>
+                </a>
+            </button>
+        </div>
+    {% endfor %}
+</div>
 </div>
 {% endblock %}

@@ -1,0 +1,63 @@
+.stock-detail-cont {
+    width: 850px;
+    border-radius: 20px;
+    background-color: #0f9a9a;
+    margin-bottom: 70px;
+}
+.detail-img {
+    background-color: #b0e7ae;
+    width: 850px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}
+.big-img {
+    width: 500px;
+    height: 750px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.s-img {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 200px;
+    height: 250px;
+    position: relative;
+}
+.little-img-cont {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+.button-img {
+    margin-top: 10px;
+    background-color: #12ecec;
+    border-radius: 15px;
+    font-style: oblique;
+    will-change: color;
+	transition: ease all 0.3s;
+	&:hover {
+		transform: scale(1.2);
+		background: rgba(87, 203, 29, 0.8);
+	}
+}
+.context-cont {
+    text-align: center;
+    font-style: oblique;
+}
+.buy-button {
+    width: 100px;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    background-color: #0dea07;
+    border-radius: 15px;
+    font-style: oblique;
+    will-change: color;
+	transition: ease all 0.3s;
+	&:hover {
+		transform: scale(1.2);
+		background: rgba(222, 205, 12, 0.8);
+	}
+}
