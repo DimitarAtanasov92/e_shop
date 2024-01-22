@@ -18,7 +18,7 @@
             <h1>{{ stock.name }}</h1>
             <h2>{{ stock.description }}</h2>
             <h1>Price: {{ stock.price }}$</h1>
-            <button class="buy-button"><a href="#">Buy</a></button>
+            <button class="buy-button"><a href="{% url "purchase" pk=stock.pk %}">Buy</a></button>
         </div>
     </div>
     <script src="{% static "js/stock_details.js" %}"></script>

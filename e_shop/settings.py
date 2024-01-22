@@ -142,4 +142,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 LOGOUT_REDIRECT_URL = reverse_lazy("login_user")
 LOGIN_REDIRECT_URL = reverse_lazy("index")
+LOGIN_URL = reverse_lazy("login_user")
 AUTH_USER_MODEL = "auth_users.AppUser"

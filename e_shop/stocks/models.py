@@ -40,3 +40,13 @@ class ImgStocks(models.Model):
 
     stocks = models.ForeignKey(Stock, on_delete=CASCADE)
     img = models.ImageField()
+
+
+class Purchase(models.Model):
+
+    address = models.CharField()
+    phone = models.IntegerField()
+    email = models.EmailField()
+    product = models.ForeignKey(Stock, on_delete=CASCADE)
+    completed = models.BooleanField(default=False)
+
