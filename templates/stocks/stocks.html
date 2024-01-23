@@ -9,9 +9,29 @@
       <tr>
         <th class="filter-th"><label for="name-filter"></label><input type="text" id="name-filter" placeholder="Enter stock name"></th>
         <th class="filter-th"><label for="price-filter"></label><input type="text" id="price-filter" placeholder="Enter stock max price"></th>
-        <th class="filter-th"><label for="type-filter"></label><input type="text" id="type-filter" placeholder="Enter stock type"></th>
-        <th class="filter-th"><label for="size-filter"></label><input type="text" id="size-filter" placeholder="Enter stock size"></th>
-        <th class="filter-th"><label for="fabric-filter"></label><input type="text" id="fabric-filter" placeholder="Enter stock fabric"></th>
+        <th class="filter-th"><label for="type-filter"></label><select id="type-filter">
+                <option></option>
+                <option value="Suit">Suit</option>
+                <option value="Blouse">Blouse</option>
+                <option value="T-Shirt">T-Shirt</option>
+                <option value="Skirt">Skirt</option>
+                <option value="Pants">Pants</option>
+                <option value="Skirt Suit">Skirt Suit</option>
+            </select></th>
+        <th class="filter-th"><label for="size-filter"></label><select id="size-filter">
+                <option></option>
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">Extra Large</option>
+                <option value="XXL+">Double Extra Large+</option>
+            </select></th>
+        <th class="filter-th"><label for="fabric-filter"></label><select id="fabric-filter">
+                <option></option>
+                <option value="Cotton">Cotton</option>
+                <option value="Polyester">Polyester</option>
+                <option value="Lycra">Lycra</option>
+            </select></th>
       </tr>
 </thead>
 </div>
@@ -23,10 +43,14 @@
                     <img src="{{ stocks.imgstocks_set.first.img.url }}" alt="stock-img" class="img-stock">
                     <h3 class="product-title">{{ stocks.name }}</h3>
                     <p class="product-price">{{ stocks.price|floatformat:2 }}$</p>
+                    <p class="product-type">{{ stocks.type }}</p>
+                    <p class="product-size">{{ stocks.size }}</p>
+                    <p class="product-fabric">{{ stocks.fabric }}</p>
                 </a>
             </button>
         </div>
     {% endfor %}
 </div>
 </div>
+    <script src="{% static "js/stocks.js" %}"></script>
 {% endblock %}

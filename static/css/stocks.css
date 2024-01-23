@@ -46,3 +46,12 @@
 		background: rgba(87, 203, 29, 0.8);
 	}
 }
+.product-type {
+    display: none;
+}
+.product-size {
+    display: none;
+}
+.product-fabric {
+    display: none;
+}

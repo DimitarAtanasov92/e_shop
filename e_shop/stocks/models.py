@@ -19,8 +19,7 @@ class Stock(models.Model):
         ('S', 'Small'),
         ('M', 'Medium'),
         ('XL', 'Extra Large'),
-        ('XXL', 'Double Extra Large'),
-        ('quick', 'My Choice is Quick'),
+        ('XXL+', 'Double Extra Large+'),
     ]
     size = models.CharField(max_length=10, choices=SIZE_CHOICES)
     FABRIC_CHOICES = [
@@ -49,4 +48,5 @@ class Purchase(models.Model):
     email = models.EmailField()
     product = models.ForeignKey(Stock, on_delete=CASCADE)
     completed = models.BooleanField(default=False)
+
 
