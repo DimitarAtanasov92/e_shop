@@ -82,10 +82,10 @@
 
 <div class="container">
     <div class="left-container">
-        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="left pic" id="img1">
+        <a href="#" id="url1"><img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="left pic" id="img1"></a>
     </div>
     <div class="right-container">
-        <img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="right pic" id="img2">
+        <a href="#" id="url2"><img class="img-sites" src="{% static "pictures/IMG_8495-2.jpg" %}" alt="right pic" id="img2"></a>
     </div>
     <div class="middle-container">
         {% block content %}
@@ -101,23 +101,26 @@
     </ul>
 </footer>
 <script>
-    let imageUrls = [
-        "{% static "pictures/IMG_8495-2.jpg" %}",
-        "{% static "pictures/IMG_8528.jpg" %}",
-        "{% static "pictures/IMG_8564.jpg" %}",
-        "{% static "pictures/IMG_8577.jpg" %}",
-        ];
-let imageIndex = 0;
-let sliderImage = document.getElementById('img1');
- setInterval(() => {
-  imageIndex = (imageIndex + 1) % imageUrls.length;
-  sliderImage.src = imageUrls[imageIndex];
-}, 2000);
- let sliderImage2 = document.getElementById('img2');
- setInterval(() => {
-  imageIndex = (imageIndex + 1) % imageUrls.length;
-  sliderImage2.src = imageUrls[imageIndex];
-}, 2000);
+    let imageUrls = {{ products|safe }};
+    let imageIndex = 0;
+    let sliderImage = document.getElementById('img1');
+    let sliderUrl = document.getElementById('url1');
+    let baseUrl = "{% url 'stocks-details' pk=0 %}".slice(0, -2);
+
+    setInterval(() => {
+        imageIndex = (imageIndex + 1) % imageUrls.length;
+        sliderImage.src = imageUrls[imageIndex][0];
+        sliderUrl.href = baseUrl + imageUrls[imageIndex][1];
+    }, 2000);
+
+    let sliderImage2 = document.getElementById('img2');
+    let sliderUrl2 = document.getElementById('url2');
+
+    setInterval(() => {
+        imageIndex = (imageIndex + 1) % imageUrls.length;
+        sliderImage2.src = imageUrls[imageIndex][0];
+        sliderUrl2.href = baseUrl + imageUrls[imageIndex][1];
+    }, 2000);
 </script>
 </body>
 </html>

@@ -12,7 +12,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30, blank=True, null=True)
     last_name = models.CharField(max_length=30, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
-    img = models.ImageField(upload_to="user_img/", blank=True, null=True)
+    img = models.ImageField(upload_to="user_img", blank=True, null=True)
 
     user = models.OneToOneField(
         UserModel,

@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-&7s*gzvrc4==i70z!wff$gzn&^utoz(3*-amki*74(b7)4+u0g
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = []
 
 
@@ -55,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "e_shop.urls"
@@ -72,6 +73,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "e_shop.context_processors.img_processor",
+                "e_shop.context_processors.products_context",
             ],
         },
     },
@@ -94,6 +96,13 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND':
+            'django.core.cache.backends.db.DatabaseCache',
+            'LOCATION': 'application_cache',
+        }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -130,6 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / 'productionfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]

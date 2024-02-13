@@ -38,7 +38,7 @@ class Stock(models.Model):
 class ImgStocks(models.Model):
 
     stocks = models.ForeignKey(Stock, on_delete=CASCADE)
-    img = models.ImageField()
+    img = models.ImageField(upload_to="stock_img")
 
 
 class Purchase(models.Model):

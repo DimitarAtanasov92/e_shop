@@ -11,3 +11,6 @@ def img_processor(request):
     }
 
 
+def products_context(request):
+    products = [[product.imgstocks_set.first().img.url, f'{product.pk}'] for product in Stock.objects.all()]
+    return {"products": products}
